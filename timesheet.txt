@@ -1,1 +1,6 @@
-19:20 Project Research and init
+18/03/2025
+19:20 Start Project Research and init
+20:10 End Project init and navbar
+
+21:40 Navbar improvements and commenting 
+21:45 End navbar improvements
