@@ -6,7 +6,7 @@ import { ReactNode, useState } from "react";
 {
 	/* Global wrapper to include react query in all parts of the site */
 }
-export default function Providers({ children }: { children: ReactNode }) {
+export default function Providers({ children }) {
 	const [queryClient] = useState(() => new QueryClient());
 	return (
 		<QueryClientProvider client={queryClient}>

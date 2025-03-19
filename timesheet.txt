@@ -4,4 +4,6 @@
 
 21:40 Navbar improvements and commenting 
 21:45 End navbar improvements
-22:50 End testing API fetches to get last race results
+23:05 End testing API fetches to get last race results
+
+23:25 Start testing api fetches again

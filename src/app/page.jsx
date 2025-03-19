@@ -1,14 +1,14 @@
-import DisplayCardLg from "./components/ui/DisplayCardLg";
+import DriverList from "./components/DriverList";
 
 export default function Home() {
 	return (
 		//Split the screen into 2 halves
 		<div className="flex h-screen justify-evenly">
 			<div>
-				{/* Previous Race Results */}
-				<DisplayCardLg />
+				{/* Driver List */}
+				<DriverList />
 			</div>
-			<div>{/*Championship Standings*/}</div>
+			<div>{/* Race List and Info */}</div>
 		</div>
 	);
 }
