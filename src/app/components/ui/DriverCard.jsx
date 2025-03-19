@@ -1,14 +1,7 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 
-const fetchFlag = async ({ queryKey }) => {
-	const [countryCode] = queryKey;
-	const res = await fetch(
-		`https://restcountries.com/v3.1/alpha/${countryCode}?fields=flags`
-	);
-	if (!res.ok) throw new Error("Failed to fetch");
-	return res.json();
-};
+import fetchFlag from "../../utils/fetchFlag";
 
 const DriverCard = ({ number, driver }) => {
 	const {
@@ -25,7 +18,7 @@ const DriverCard = ({ number, driver }) => {
 	return (
 		<div
 			style={{ backgroundColor: `#${driver.team_colour}` }}
-			className="py-2 px-4 rounded-lg my-2 flex"
+			className="py-2 px-4 rounded-lg my-2 flex mx-2"
 		>
 			<div className="relative text-center">
 				<img

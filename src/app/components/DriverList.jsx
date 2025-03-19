@@ -3,12 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import DriverCard from "./ui/DriverCard";
 
-const fetchAPI = async ({ queryKey }) => {
-	const [endpoint, params] = queryKey;
-	const res = await fetch(`https://api.openf1.org/v1/${endpoint}?${params}`);
-	if (!res.ok) throw new Error("Failed to fetch");
-	return res.json();
-};
+import fetchOpenF1 from "../utils/fetchOpenF1";
 
 const DriverList = () => {
 	const {
@@ -17,16 +12,21 @@ const DriverList = () => {
 		error,
 	} = useQuery({
 		queryKey: ["drivers", "session_key=latest"],
-		queryFn: fetchAPI,
+		queryFn: fetchOpenF1,
 	});
+	const sortedDrivers = driverData
+		? driverData.sort((driverA, driverB) =>
+				driverA.team_name.localeCompare(driverB.team_name)
+		  )
+		: [];
 
 	if (isLoading) return <p>Loading Drivers...</p>;
 	if (error) return <p>Error fetching data for drives</p>;
 	//console.table(driverData);
 
 	return (
-		<div className="">
-			{driverData.map((driver) => (
+		<div className="grid grid-cols-1 lg:grid-cols-2 px-2">
+			{sortedDrivers.map((driver) => (
 				<DriverCard key={driver.driver_number} driver={driver} />
 			))}
 		</div>

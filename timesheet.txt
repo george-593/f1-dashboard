@@ -7,3 +7,8 @@
 23:05 End testing API fetches to get last race results
 
 23:25 Start testing api fetches again
+
+19/03/2025
+01:10 Display driver faces and flags
+
+11:35 Begin finishing up driver list
