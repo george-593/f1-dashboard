@@ -4,15 +4,12 @@ import { useQuery } from "@tanstack/react-query";
 import fetchFlag from "../../utils/fetchFlag";
 
 const DriverCard = ({ number, driver }) => {
-	const {
-		data: flagData,
-		isLoading,
-		error,
-	} = useQuery({
+	{
+		/* Using react-query as it has automatic caching to reduce the amount of API calls*/
+	}
+	const { data: flagData } = useQuery({
 		queryKey: [driver.country_code],
 		queryFn: fetchFlag,
-		enabled: !!driver.country_code,
-		gcTime: 0,
 	});
 
 	return (
@@ -20,6 +17,7 @@ const DriverCard = ({ number, driver }) => {
 			style={{ backgroundColor: `#${driver.team_colour}` }}
 			className="py-2 px-4 rounded-lg my-2 flex mx-2"
 		>
+			{/* Overlay the drivers number over their headshot because of the poor quality of headshots from OpenF1 */}
 			<div className="relative text-center">
 				<img
 					src={driver.headshot_url}
@@ -37,6 +35,7 @@ const DriverCard = ({ number, driver }) => {
 					</h2>
 					<h2 className="font-black text-lg">{driver.team_name}</h2>
 				</div>
+				{/* Only show the flag image if the driver has a country code as rookies do not have one as of 19/03/2025 (after round 1)*/}
 				{driver.country_code ? (
 					<img
 						src={flagData?.flags?.png}

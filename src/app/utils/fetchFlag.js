@@ -1,3 +1,4 @@
+//Util function called by react-query to fetch flag data*/
 const fetchFlag = async ({ queryKey }) => {
 	const [countryCode] = queryKey;
 	const res = await fetch(
