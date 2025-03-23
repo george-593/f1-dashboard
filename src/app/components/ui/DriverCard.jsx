@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import fetchFlag from "../../utils/fetchFlag";
 
-const DriverCard = ({ number, driver }) => {
+const DriverCard = ({ _, driver }) => {
 	{
 		/* Using react-query as it has automatic caching to reduce the amount of API calls*/
 	}

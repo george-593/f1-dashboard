@@ -32,7 +32,7 @@ const DriverList = () => {
 	if (error) return <p>Error fetching data for drives</p>;
 
 	return (
-		<div className="grid grid-cols-1 lg:grid-cols-2 px-2">
+		<div className="grid grid-cols-2 px-2 md:grid-cols-1 xl:grid-cols-2">
 			{/* Create a DriverCard for each driver */}
 			{sortedDrivers.map((driver) => (
 				<DriverCard key={driver.driver_number} driver={driver} />
