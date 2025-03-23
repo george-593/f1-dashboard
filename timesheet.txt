@@ -12,3 +12,8 @@
 01:10 Display driver faces and flags
 
 11:35 Begin finishing up driver list
+11:55 Finish driver list
+14:10 Somewhat finish race list
+
+23/03/2025
+Begin finishing up race list

@@ -1,4 +1,5 @@
 import DriverList from "./components/DriverList";
+import RaceResults from "./components/RaceResults";
 
 export default function Home() {
 	return (
@@ -8,7 +9,10 @@ export default function Home() {
 				{/* Driver List */}
 				<DriverList />
 			</div>
-			<div>{/* Race List and Info */}Race List</div>
+			<div>
+				{/* Race List and Info */}
+				<RaceResults />
+			</div>
 		</div>
 	);
 }
