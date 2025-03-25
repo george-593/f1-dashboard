@@ -16,4 +16,8 @@
 14:10 Somewhat finish race list
 
 23/03/2025
-Begin finishing up race list
+22:30 Begin finishing up race list
+23:30 finish race list and some optimization + rate limiting bypass attempt
+
+25/03/25
+23:00 Begin chart page

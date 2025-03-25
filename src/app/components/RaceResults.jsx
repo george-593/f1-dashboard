@@ -16,22 +16,15 @@ const RaceResults = () => {
 	} = useQuery({
 		queryKey: ["sessions", `year=${year}&session_type=Race`],
 		queryFn: fetchOpenF1,
-		staleTime: 1000 * 60 * 5,
-		retry: (failureCount, error) =>
-			error.status === 429 && failureCount < 3,
-		retryDelay: (attempt) => Math.pow(2, attempt) * 1000,
 	});
-	// Loading/error logic to prevent the next request erroring out because it doesn't have data
-	if (sessionsLoading) return <p>Loading sessions...</p>;
-	if (sessionsError) return <p>Error loading sessions...</p>;
 
-	console.log(sessionData);
 	var raceData = sessionData;
 
 	const lapsQueries = useQueries({
 		queries: raceData.map((race) => ({
 			queryKey: ["laps", `session_key=${race.session_key}`],
 			queryFn: fetchOpenF1,
+			enabled: !!sessionData,
 		})),
 	});
 	const lapsLoading = lapsQueries.some((query) => query.isLoading);
